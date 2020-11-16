@@ -38,6 +38,51 @@ describe Enumerable do
           it { expect(%i[foo bar].my_select { |x| x == :foo }).to contain_exactly(:foo) }
         end
       end
+
+    describe '#my_all'do
+    it "check condition inside a block" do
+      expect(%w[ant bear cat].my_all?(/t/)).to eq(%w[ant bear cat].my_all?(/t/))
+    end
+    it "check if the items are numbers"do
+    expect([1, 2i, 3.14].my_all?(Numeric)).to eq([1, 2i, 3.14].my_all?(Numeric))
+  end
+  it "check if the items are the same type"do
+  expect([nil, true, 99].my_all?).to eq([nil, true, 99].all?  )
+  end
+end
+
+describe '#my_any' do
+  it 'check condition inside a block'do
+  expect(%w[ant bear cat].my_any? { |word| word.length >= 3 }).to eq(%w[ant bear cat].any? { |word| word.length >= 3 })
+end
+it 'check if any of the items are integers'do
+expect([nil, true, 99].my_any?(Integer)).to eq([nil, true, 99].any?(Integer))
+end
+it 'check if there are elements on the Array'do
+expect([].my_any?).to eq([].any? )
+end
+end
+
+describe '#my_none' do
+  it 'check condition inside a block'do
+    expect(%w{ant bear cat}.my_none? { |word| word.length == 5 }).to eq(%w{ant bear cat}.none? { |word| word.length == 5 })
+  end
+  it 'check if one of the elements is equal to the specified class'do
+  expect([1, 3.14, 42].my_none?(Float) ).to eq([1, 3.14, 42].none?(Float) )
+  end
+  it 'check if the array is empty'do
+  expect([].my_none?).to eq([].none?)
+  end
+end
+
+describe '#my_map' do
+  it 'returns array with new results'do
+    expect((1..4).my_map { |i| i*i }).to eq((1..4).map { |i| i*i })
+  end
+  it 'returns array with new results'do
+  expect((1..4).my_map { 'cat'}).to eq((1..4).map {'cat'})
+  end
+end
     end
   end
 end
