@@ -14,7 +14,7 @@ Metrics/PerceivedComplexity:
 Lint/NestedMethodDefinition:
   Enabled: false
 Layout/LineLength:
-  Max: 120
+    Enabled: false
 Metrics/MethodLength:
   Max: 40
 Metrics/AbcSize:
@@ -23,7 +23,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
-  Max: 30
+  Max: 120
 
 
 Style/Documentation:
@@ -58,4 +58,6 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Lint/BinaryOperatorWithIdenticalOperands:
+    Enabled: false
   
