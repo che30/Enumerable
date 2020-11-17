@@ -101,11 +101,11 @@ describe Enumerable do
   end
 
   describe '#my_inject' do
-    it 'returns array with new results' do
-      expect((1..4).my_map { |i| i * i }).to eq((1..4).map { |i| i * i })
+    it 'evaluates my inject method' do
+      expect((5..10).my_inject { |sum, n| sum + n }).to eq((5..10).inject { |sum, n| sum + n })
     end
     it 'returns array with new results' do
-      expect((1..4).my_map { 'cat' }).to eq((1..4).map { 'cat' })
+      expect((5..10).my_inject(1) { |product, n| product * n }).to eq((5..10).inject(1) { |product, n| product * n })
     end
   end
 
