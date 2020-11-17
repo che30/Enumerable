@@ -1,4 +1,5 @@
 # spec/enumerable_spec.rb
+# rubocop:disable Layout/LineLength
 require_relative '../main'
 describe Enumerable do
   let(:arr) { [1, 2, 3] }
@@ -93,7 +94,7 @@ describe Enumerable do
 
   describe '#my_map' do
     it 'returns array with new results' do
-      expect((1..4).my_map { |i| i * i }).to eq((1..4).map { |i| i * i })
+      expect((1..4).my_map { |i| i * 3 }).to eq((1..4).map { |i| i * 3 })
     end
     it 'returns array with new results' do
       expect((1..4).my_map { 'cat' }).to eq((1..4).map { 'cat' })
@@ -115,3 +116,4 @@ describe Enumerable do
     end
   end
 end
+# rubocop:enable Layout/LineLength

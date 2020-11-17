@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity,Lint/AmbiguousBlockAssociation
 module Enumerable
   def my_each
     return to_enum(:my_each) unless block_given?
@@ -116,3 +115,5 @@ p %w[ant bear cat].my_any?(/d/) #=> false
 p [nil, true, 99].my_any?(Integer) #=> true
 p [nil, true, 99].my_any? #=> true
 p [].my_any? #=> false
+
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity,Lint/AmbiguousBlockAssociation
