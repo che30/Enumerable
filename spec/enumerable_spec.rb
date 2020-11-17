@@ -101,12 +101,13 @@ describe Enumerable do
     end
   end
 
-  describe '#my_inject' do
-    it 'evaluates my inject method' do
-      expect((5..10).my_inject { |sum, n| sum + n }).to eq((5..10).inject { |sum, n| sum + n })
+  describe '#my_count' do
+    ary = [1, 2, 4, 2]
+    it 'evaluates my count method' do
+      expect(ary.my_count).to eq(ary.my_count)
     end
-    it 'returns array with new results' do
-      expect((5..10).my_inject(1) { |product, n| product * n }).to eq((5..10).inject(1) { |product, n| product * n })
+    it 'evaluates my count method' do
+      expect(ary.my_count(2)).to eq(ary.count(2))
     end
   end
 
