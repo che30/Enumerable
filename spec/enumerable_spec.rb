@@ -99,4 +99,19 @@ describe Enumerable do
       expect((1..4).my_map { 'cat' }).to eq((1..4).map { 'cat' })
     end
   end
+
+  describe '#my_inject' do
+    it 'returns array with new results' do
+      expect((1..4).my_map { |i| i * i }).to eq((1..4).map { |i| i * i })
+    end
+    it 'returns array with new results' do
+      expect((1..4).my_map { 'cat' }).to eq((1..4).map { 'cat' })
+    end
+  end
+
+  describe '#multiply_else' do
+    it 'evaluates multiply else method' do
+      expect(multiply_els([1, 2, 3, 4])).to eq(24)
+    end
+  end
 end
